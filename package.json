@@ -1,0 +1,14 @@
+{
+  "name": "science-gossip-data",
+  "version": "1.0.0",
+  "description": "Results from Science Gossip.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Zooniverse",
+  "license": "Apache-2.0",
+  "dependencies": {
+    "@11ty/eleventy": "^0.11.1"
+  }
+}
