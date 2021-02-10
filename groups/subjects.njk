@@ -1,0 +1,15 @@
+---
+layout: default
+pagination:
+  data: paginatedSubjects
+  size: 1
+  alias: subjectsPage
+permalink: "/groups/{{ subjectsPage.groupName }}/page/{{ subjectsPage.page }}/"
+---
+<ul>
+{% for subject in  subjectsPage.subjects%}
+  <li>
+    <a href="/groups/{{ subject.group.name }}/subjects/{{ subject.zooniverse_id }}">{{ subject.zooniverse_id }}</a>
+  </li>
+{% endfor %}
+</ul>
