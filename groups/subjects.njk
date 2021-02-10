@@ -8,8 +8,13 @@ permalink: "/groups/{{ subjectsPage.groupName }}/page/{{ subjectsPage.page }}/"
 ---
 <ul>
 {% for subject in  subjectsPage.subjects%}
-  <li>
-    <a href="/groups/{{ subject.group.name }}/subjects/{{ subject.zooniverse_id }}">{{ subject.zooniverse_id }}</a>
+  <li style="display: inline-block;">
+    <a href="/groups/{{ subject.group.name }}/subjects/{{ subject.zooniverse_id }}">
+      <img
+        alt="Subject {{ subject.zooniverse_id }}"
+        src="{{ subject.location.thumb }}"
+      />
+    </a>
   </li>
 {% endfor %}
 </ul>
