@@ -6,4 +6,6 @@ pagination:
   alias: subject
 permalink: "/groups/{{ subject.group.name }}/subjects/{{ subject.zooniverse_id}}/"
 ---
-<img src="{{ subject.location.standard }}" />
+<svg viewbox="0 0 {{ subject.metadata.original_size.width }} {{ subject.metadata.original_size.height }}" xmlns="http://www.w3.org/2000/svg">
+  <image xlink:href="{{ subject.location.standard }}" />
+</svg>
