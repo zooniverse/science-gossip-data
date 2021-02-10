@@ -1,0 +1,9 @@
+---
+layout: default
+pagination:
+  data: subjects.GSC0000001
+  size: 1
+  alias: subject
+permalink: "/groups/{{ subject.group.name }}/subjects/{{ subject.zooniverse_id}}/"
+---
+<img src="{{ subject.location.standard }}" />
