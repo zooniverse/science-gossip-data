@@ -1,0 +1,10 @@
+---
+layout: default
+pagination:
+  data: groups
+  resolve: values
+  size: 1
+  alias: group
+permalink: "/groups/{{ group.name }}/"
+---
+<h1>{{ group.metadata.title }}</h1>

@@ -1,0 +1,12 @@
+---
+title: Groups
+layout: default
+---
+<h1>Groups</h1>
+<ul>
+{% for groupID, group in groups %}
+  <li>
+    <p><a href="/groups/{{ groupID }}/">{{ group.metadata.title }}</a></p>
+  </li>
+{% endfor %}
+</ul>
