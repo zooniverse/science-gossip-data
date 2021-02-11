@@ -1,7 +1,7 @@
 module.exports = function (eleventyConfig) {
   eleventyConfig.addLayoutAlias("default", "layouts/default.njk");
 
-  eleventyConfig.addShortcode("SVGMark", require('./_includes/components/SVGMark'));
+  eleventyConfig.addShortcode("SVGMark", require('./components/SVGMark'));
 
   return {
     templateFormats: [
@@ -17,10 +17,10 @@ module.exports = function (eleventyConfig) {
 
     // These are all optional, defaults are shown:
     dir: {
-      input: ".",
+      input: "./site",
       includes: "_includes",
       data: "_data",
-      output: "_site"
+      output: "dist"
     }
   };
 }
