@@ -14,4 +14,19 @@ permalink: "/groups/{{ subject.group.name }}/subjects/{{ subject.zooniverse_id}}
 <p>
   {{ results.keywords }}
 </p>
-{{ results | dump }}
+
+<h2>Drawn marks</h2>
+<dl>
+{% for reduction in results.reduced %}
+  <dt>{{ reduction.type }}</dt>
+  <dd>{{ reduction.value | dump }}</dd>
+{% endfor %}
+</dl>
+
+<h2>Raw result</h2>
+<dl>
+{% for key, result in results %}
+  <dt>{{ key }}</dt>
+  <dd>{{ result | dump }}</dd>
+{% endfor %}
+</dl>
