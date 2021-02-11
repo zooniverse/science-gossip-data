@@ -4,7 +4,10 @@
   "description": "Results from Science Gossip.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "npx eleventy",
+    "watch": "npx eleventy --watch",
+    "serve": "npx eleventy --serve",
+    "debug": "DEBUG=* npx eleventy"
   },
   "author": "Zooniverse",
   "license": "Apache-2.0",
