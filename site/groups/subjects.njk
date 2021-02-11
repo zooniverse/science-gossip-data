@@ -10,11 +10,7 @@ permalink: "/groups/{{ subjectsPage.groupName }}/page/{{ subjectsPage.page }}/"
 {% for subject in  subjectsPage.subjects%}
   <li style="display: inline-block;">
     <a href="/science-gossip-data/groups/{{ subject.group.name }}/subjects/{{ subject.zooniverse_id }}">
-      <img
-        alt="Subject {{ subject.zooniverse_id }}"
-        src="{{ subject.location.thumb }}"
-        style="max-height: 150px;"
-      />
+      {% SubjectImg subject=subject, size="thumb" %}
     </a>
   </li>
 {% endfor %}
