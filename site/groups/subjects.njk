@@ -6,6 +6,14 @@ pagination:
   alias: subjectsPage
 permalink: "/groups/{{ subjectsPage.groupName }}/page/{{ subjectsPage.page }}/"
 ---
+<h1>{{ group.metadata.title }}</h1>
+<p>
+{{ group.metadata.publication_details}}<br/>
+{{ group.metadata.authors }}<br/>
+<a href="https://www.biodiversitylibrary.org/bibliography/{{ group.metadata.title_id }}">
+  BHL Title {{ group.metadata.title_id }}
+</a>
+</p>
 <nav aria-label="Page">
   <ul style="list-style-type: none;">
   {% for page in range(0, subjectsPage.pageCount) -%}
