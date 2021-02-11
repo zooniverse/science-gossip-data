@@ -2,6 +2,7 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addLayoutAlias("default", "layouts/default.njk");
 
   eleventyConfig.addShortcode("SVGMark", require('./components/SVGMark'));
+  eleventyConfig.addPairedShortcode("SVGSubject", require('./components/SVGSubject'));
 
   return {
     templateFormats: [
