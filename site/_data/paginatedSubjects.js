@@ -13,6 +13,7 @@ function pageSubjects(groupSubjects) {
       groupID: group.zooniverse_id,
       groupName: group.name,
       page: i,
+      pageCount,
       subjects: pageSubjects
     });
   }

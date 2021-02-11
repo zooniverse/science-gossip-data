@@ -6,6 +6,17 @@ pagination:
   alias: subjectsPage
 permalink: "/groups/{{ subjectsPage.groupName }}/page/{{ subjectsPage.page }}/"
 ---
+<nav aria-label="Page">
+  <ul style="list-style-type: none;">
+  {% for page in range(0, subjectsPage.pageCount) -%}
+    <li style="display: inline-block; padding: .2em .5em;">
+      <a href="../{{ page }}">
+        {{ page }}
+      </a>
+    </li>
+  {%- endfor %}
+  </ul>
+</nav>
 <ul>
 {% for subject in  subjectsPage.subjects%}
   <li style="display: inline-block;">
@@ -15,3 +26,14 @@ permalink: "/groups/{{ subjectsPage.groupName }}/page/{{ subjectsPage.page }}/"
   </li>
 {% endfor %}
 </ul>
+<nav aria-label="Page">
+  <ul style="list-style-type: none;">
+  {% for page in range(0, subjectsPage.pageCount) -%}
+    <li style="display: inline-block; padding: .2em .5em;">
+      <a href="../{{ page }}">
+        {{ page }}
+      </a>
+    </li>
+  {%- endfor %}
+  </ul>
+</nav>
