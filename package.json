@@ -4,7 +4,7 @@
   "description": "Results from Science Gossip.",
   "main": "index.js",
   "scripts": {
-    "build": "npx eleventy",
+    "build": "node --max_old_space_size=8192 node_modules/.bin/eleventy",
     "watch": "npx eleventy --watch",
     "serve": "npx eleventy --serve",
     "debug": "DEBUG=* npx eleventy"
