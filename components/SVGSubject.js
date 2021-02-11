@@ -4,6 +4,8 @@ module.exports = function SVGSubject(content, { subject }) {
   const scale = 1400 / maxDimension;
   const height = original_size.height * scale;
   const width = original_size.width * scale;
+  let href = subject.location.standard.replace('zooniverse-static.s3.amazonaws.com', 'static.zooniverse.org');
+  href = href.replace('http://', 'https://');
   return `
   <svg
     style="max-height: 500px;"
@@ -14,7 +16,7 @@ module.exports = function SVGSubject(content, { subject }) {
     <image
       height=${height}
       width=${width}
-      xlink:href=${subject.location.standard}
+      xlink:href=${href}
     />
     ${content}
   </svg>
