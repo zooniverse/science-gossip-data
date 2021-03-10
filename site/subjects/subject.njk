@@ -23,6 +23,12 @@ permalink: "/groups/{{ subject.group.name }}/subjects/{{ subject.zooniverse_id}}
 {% endfor %}
 </dl>
 
+<h2>Metadata</h2>
+{% for key, value in subject.metadata %}
+  <dt>{{ key }}</dt>
+  <dd>{{ value }}</dd>
+{% endfor %}
+
 <h2>Raw result</h2>
 <dl>
 {% for key, result in results %}
