@@ -1,10 +1,21 @@
+const colours = {
+  drawing: 'darkorange',
+  map: 'blue',
+  chart: 'red',
+  table: 'lightseagreen',
+  inscription: 'maroon',
+  species: 'green',
+  contributor: 'steelblue'
+}
+
 module.exports = function SVGMark({ mark }) {
   const [ cx, cy, x, y, width, height ] = mark.coords
+  const colour = colours[mark.type] || 'yellow'
   
   if (cx || cy) {
     return `
       <circle
-        stroke="black"
+        stroke=${colour}
         fill="transparent"
         cx=${cx}
         cy=${cy}
@@ -14,7 +25,7 @@ module.exports = function SVGMark({ mark }) {
   }
   return `
     <rect
-      stroke="white"
+      stroke=${colour}
       fill="transparent"
       x=${x}
       y=${y}
