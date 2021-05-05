@@ -6,7 +6,7 @@
   "scripts": {
     "build": "node --max_old_space_size=8192 node_modules/.bin/eleventy",
     "watch": "npx eleventy --watch",
-    "serve": "npx eleventy --serve",
+    "serve": "node --max_old_space_size=8192 node_modules/.bin/eleventy --serve",
     "debug": "DEBUG=* npx eleventy"
   },
   "author": "Zooniverse",
