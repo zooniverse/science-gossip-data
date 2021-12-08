@@ -1,4 +1,7 @@
+const UpgradeHelper = require("@11ty/eleventy-upgrade-help");
+
 module.exports = function (eleventyConfig) {
+  eleventyConfig.addPlugin(UpgradeHelper);
   eleventyConfig.addLayoutAlias("default", "layouts/default.njk");
 
   eleventyConfig.addShortcode("SubjectImg", require('./components/SubjectImg'));
