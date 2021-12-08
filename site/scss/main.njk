@@ -13,6 +13,7 @@ body {
 }
 
 h1 {
+  color: var(--gray-8);
   line-height: var(--font-lineheight-1);
   font-size: var(--font-size-fluid-1);
   font-weight: var(--font-weight-3);
@@ -46,4 +47,16 @@ nav[aria-label=Page] > ul > li > a {
 nav[aria-label=Page] > ul > li > a[href]:is(.current, :hover, :focus-visible) {
   --_link-bg: var(--indigo-5);
   --_link-text: var(--indigo-0);
+}
+
+ul.thumbnails {
+  display: grid;
+  gap: var(--size-1);
+  grid-template-columns: repeat(5, 1fr);
+  list-style-type: none;
+  padding-inline-start: 0
+}
+
+ul.thumbnails > li {
+  padding-inline-start: 0;
 }

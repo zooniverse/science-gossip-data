@@ -25,9 +25,9 @@ permalink: "/groups/{{ subjectsPage.groupName }}/page/{{ subjectsPage.page }}/"
   {%- endfor %}
   </ul>
 </nav>
-<ul>
+<ul class="thumbnails">
 {% for subject in  subjectsPage.subjects%}
-  <li style="display: inline-block;">
+  <li>
     <a href="../../subjects/{{ subject.zooniverse_id }}">
       {% SubjectImg subject=subject, size="thumb" %}
     </a>
