@@ -67,3 +67,13 @@ ul.thumbnails {
 ul.thumbnails > li {
   padding-inline-start: 0;
 }
+
+.subject {
+  display: grid;
+  gap: var(--size-2);
+  grid-template-columns: 1fr 1fr;
+}
+
+.subject svg {
+  inline-size: var(--size-fluid-10)
+}
