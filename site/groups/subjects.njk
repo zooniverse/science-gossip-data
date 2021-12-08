@@ -15,9 +15,9 @@ permalink: "/groups/{{ subjectsPage.groupName }}/page/{{ subjectsPage.page }}/"
 </a>
 </p>
 <nav aria-label="Page">
-  <ul style="list-style-type: none;">
+  <ul>
   {% for page in range(0, subjectsPage.pageCount) -%}
-    <li style="display: inline-block; padding: .2em .5em;">
+    <li>
       <a href="../{{ page }}">
         {{ page }}
       </a>
@@ -35,9 +35,9 @@ permalink: "/groups/{{ subjectsPage.groupName }}/page/{{ subjectsPage.page }}/"
 {% endfor %}
 </ul>
 <nav aria-label="Page">
-  <ul style="list-style-type: none;">
+  <ul>
   {% for page in range(0, subjectsPage.pageCount) -%}
-    <li style="display: inline-block; padding: .2em .5em;">
+    <li>
       <a href="../{{ page }}">
         {{ page }}
       </a>
