@@ -18,7 +18,10 @@ permalink: "/groups/{{ subjectsPage.groupName }}/page/{{ subjectsPage.page }}/"
   <ul>
   {% for page in range(0, subjectsPage.pageCount) -%}
     <li>
-      <a href="../{{ page }}">
+      <a
+      {% if page === subjectsPage.page %}class="current"{% endif %}
+        href="../{{ page }}"
+      >
         {{ page }}
       </a>
     </li>
@@ -38,7 +41,10 @@ permalink: "/groups/{{ subjectsPage.groupName }}/page/{{ subjectsPage.page }}/"
   <ul>
   {% for page in range(0, subjectsPage.pageCount) -%}
     <li>
-      <a href="../{{ page }}">
+      <a
+      {% if page === subjectsPage.page %}class="current"{% endif %}
+        href="../{{ page }}"
+      >
         {{ page }}
       </a>
     </li>
