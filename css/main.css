@@ -18,7 +18,7 @@ h1 {
 
 p {
   color: var(--gray-8);
-  font-size: var(--font-size-fluid-1);
+  font-size: var(--font-size-fluid-0);
   font-weight: var(--font-weight-3);
 }
 
@@ -36,8 +36,9 @@ nav[aria-label=Page] > ul > li {
 nav[aria-label=Page] > ul > li > a {
   background-color: var(--_link-bg);
   color: var(--_link-text);
-  padding-inline: var(--size-3);
-  padding-block: var(--size-2);
+  font-size: var(--font-size-fluid-0);
+  padding-inline: var(--size-2);
+  padding-block: var(--size-1);
   border-radius: var(--radius-3);
   text-decoration: none;
   outline-offset: 3px;
