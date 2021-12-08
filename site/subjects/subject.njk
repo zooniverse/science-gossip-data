@@ -6,14 +6,27 @@ pagination:
   alias: subject
 permalink: "/groups/{{ subject.group.name }}/subjects/{{ subject.zooniverse_id}}/"
 ---
-{% SVGSubject subject=subject %}
-  {% for mark in results.reduced %}
-    {% SVGMark mark=mark %}
-  {% endfor %}
-{% endSVGSubject %}
-<p>
-  {{ results.keywords }}
-</p>
+<div class="subject">
+  <div>
+    {% SVGSubject subject=subject %}
+      {% for mark in results.reduced %}
+        {% SVGMark mark=mark %}
+      {% endfor %}
+    {% endSVGSubject %}
+  </div>
+  <div>
+    <h2>Keywords</h2>
+    <p>
+      {{ results.keywords | join(', ') }}
+    </p>
+
+    <h2>Metadata</h2>
+    {% for key, value in subject.metadata %}
+      <dt>{{ key }}</dt>
+      <dd>{{ value }}</dd>
+    {% endfor %}
+  </div>
+</div>
 
 <h2>Drawn marks</h2>
 <dl>
@@ -22,12 +35,6 @@ permalink: "/groups/{{ subject.group.name }}/subjects/{{ subject.zooniverse_id}}
   <dd>{{ reduction.value | dump }}</dd>
 {% endfor %}
 </dl>
-
-<h2>Metadata</h2>
-{% for key, value in subject.metadata %}
-  <dt>{{ key }}</dt>
-  <dd>{{ value }}</dd>
-{% endfor %}
 
 <h2>Raw result</h2>
 <dl>

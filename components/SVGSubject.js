@@ -8,7 +8,6 @@ module.exports = function SVGSubject(content, { subject }) {
   href = href.replace('http://', 'https://');
   return `
   <svg
-    style="max-height: 500px;"
     preserveAspectRatio="xMidYMid meet"
     viewbox="0 0 ${width} ${height}"
     xmlns="http://www.w3.org/2000/svg"
