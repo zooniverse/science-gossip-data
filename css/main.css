@@ -10,10 +10,16 @@ body {
 
 h1 {
   color: var(--gray-8);
-  line-height: var(--font-lineheight-1);
+  line-height: var(--font-lineheight-2);
+  font-size: var(--font-size-fluid-1);
+  font-weight: var(--font-weight-6);
+  max-inline-size: var(--size-header-3);
+}
+
+p {
+  color: var(--gray-8);
   font-size: var(--font-size-fluid-1);
   font-weight: var(--font-weight-3);
-  max-inline-size: var(--size-header-3);
 }
 
 nav[aria-label=Page] > ul {
