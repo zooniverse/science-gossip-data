@@ -12,10 +12,16 @@ function subjectsPageDescription({ groups, subjectsPage }) {
   return `Illustrated pages from ${group.metadata.title}`
 }
 
+function subjectsPageImage({ subjectsPage }) {
+  const [subject] = subjectsPage.subjects;
+  return subject.location.thumb
+}
+
 module.exports = {
   eleventyComputed: {
     group: subjectsPageGroup,
     title: subjectsPageTitle,
-    description: subjectsPageDescription
+    description: subjectsPageDescription,
+    ogImage: subjectsPageImage
   }
 }
