@@ -15,6 +15,16 @@ p {
   font-weight: var(--font-weight-3);
 }
 
+dl {
+  display: grid;
+  gap: var(--size-2);
+  grid-template-columns: 1fr 2fr;
+
+  & dt {
+    margin-block-start: 0;
+  }
+}
+
 nav[aria-label=Page] > ul {
   --_link-bg: white;
   --_link-text: var(--gray-7);
@@ -64,5 +74,9 @@ ul.thumbnails {
 
   & svg {
     inline-size: var(--size-fluid-10);
+  }
+
+  & dl {
+    gap: var(--size-1);
   }
 }
