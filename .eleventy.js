@@ -1,6 +1,7 @@
 const UpgradeHelper = require("@11ty/eleventy-upgrade-help");
 
 module.exports = function (eleventyConfig) {
+  eleventyConfig.addWatchTarget('./site/scss/');
   eleventyConfig.addPlugin(UpgradeHelper);
   eleventyConfig.setDataDeepMerge(false);
   eleventyConfig.addLayoutAlias("default", "layouts/default.njk");
