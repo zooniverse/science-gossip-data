@@ -10,7 +10,7 @@ h1, h2 {
   max-inline-size: var(--size-header-3);
 }
 
-p {
+p, ol, ul, dl {
   font-size: var(--font-size-fluid-0);
   font-weight: var(--font-weight-3);
 }
