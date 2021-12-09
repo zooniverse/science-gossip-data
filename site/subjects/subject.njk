@@ -17,7 +17,7 @@ permalink: "/groups/{{ subject.group.name }}/subjects/{{ subject.zooniverse_id}}
   <div>
     <h2>Keywords</h2>
     <p>
-      {{ results.keywords | join(', ') }}
+      {{ result.keywords | join(', ') }}
     </p>
 
     <h2>Metadata</h2>
@@ -32,7 +32,7 @@ permalink: "/groups/{{ subject.group.name }}/subjects/{{ subject.zooniverse_id}}
 
 <h2>Drawn marks</h2>
 <dl>
-{% for reduction in results.reduced %}
+{% for reduction in result.reduced %}
   <dt>{{ reduction.type }}</dt>
   <dd>{{ reduction.value | dump }}</dd>
 {% endfor %}
@@ -40,8 +40,8 @@ permalink: "/groups/{{ subject.group.name }}/subjects/{{ subject.zooniverse_id}}
 
 <h2>Raw result</h2>
 <dl>
-{% for key, result in results %}
+{% for key, value in result %}
   <dt>{{ key }}</dt>
-  <dd>{{ result | dump }}</dd>
+  <dd>{{ value | dump }}</dd>
 {% endfor %}
 </dl>

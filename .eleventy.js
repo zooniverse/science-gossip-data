@@ -8,6 +8,7 @@ module.exports = function (eleventyConfig) {
 
   eleventyConfig.addTransform('postcss', require('./transforms/postcss'));
 
+  eleventyConfig.addShortcode("PageMetadata", require('./components/PageMetadata'));
   eleventyConfig.addShortcode("SubjectImg", require('./components/SubjectImg'));
   eleventyConfig.addShortcode("SVGMark", require('./components/SVGMark'));
   eleventyConfig.addPairedShortcode("SVGSubject", require('./components/SVGSubject'));
