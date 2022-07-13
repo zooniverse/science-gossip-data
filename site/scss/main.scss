@@ -80,3 +80,9 @@ ul.thumbnails {
     gap: var(--size-1);
   }
 }
+
+@media (width <= 480px) {
+  .subject {
+    grid-template-columns: 1fr;
+  }
+}
