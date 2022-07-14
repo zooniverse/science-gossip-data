@@ -60,7 +60,7 @@ ul.thumbnails {
   gap: var(--size-1);
   grid-template-columns: repeat(10, 1fr);
   list-style-type: none;
-  padding-inline-start: 0
+  padding-inline-start: 0;
 
   & > li {
     padding-inline-start: 0;
@@ -84,5 +84,9 @@ ul.thumbnails {
 @media (width <= 480px) {
   .subject {
     grid-template-columns: 1fr;
+  }
+
+  ul.thumbnails {
+    grid-template-columns: repeat(5, 1fr);
   }
 }
