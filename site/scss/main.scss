@@ -81,7 +81,7 @@ ul.thumbnails {
   }
 }
 
-@media (width <= 480px) {
+@media (max-width: 480px) {
   .subject {
     grid-template-columns: 1fr;
   }
