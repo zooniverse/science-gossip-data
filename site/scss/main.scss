@@ -1,17 +1,31 @@
+/* @link https://utopia.fyi/type/calculator?c=320,12,1.2,1400,18,1.25,5,2,&s=0.75|0.5|0.25,1.5|2|3|4|6,s-l */
+
+:root {
+  --body-width: 100ch;
+  --step--2: clamp(0.52rem, calc(0.46rem + 0.30vw), 0.72rem);
+  --step--1: clamp(0.63rem, calc(0.54rem + 0.41vw), 0.90rem);
+  --step-0: clamp(0.75rem, calc(0.64rem + 0.56vw), 1.13rem);
+  --step-1: clamp(0.90rem, calc(0.75rem + 0.75vw), 1.41rem);
+  --step-2: clamp(1.08rem, calc(0.88rem + 1.00vw), 1.76rem);
+  --step-3: clamp(1.30rem, calc(1.03rem + 1.34vw), 2.20rem);
+  --step-4: clamp(1.56rem, calc(1.20rem + 1.77vw), 2.75rem);
+  --step-5: clamp(1.87rem, calc(1.40rem + 2.32vw), 3.43rem);
+}
+
 body {
-  max-inline-size: var(--size-content-3);
+  max-inline-size: var(--body-width);
   margin: auto;
 }
 
 h1, h2 {
   line-height: var(--font-lineheight-2);
-  font-size: var(--font-size-fluid-1);
+  font-size: var(--step-3);
   font-weight: var(--font-weight-6);
   max-inline-size: var(--size-header-3);
 }
 
 p, ol, ul, dl {
-  font-size: var(--font-size-fluid-0);
+  font-size: var(--step-0);
   font-weight: var(--font-weight-3);
 }
 
@@ -58,19 +72,23 @@ nav[aria-label=Page] > ul {
 ul.thumbnails {
   display: grid;
   gap: var(--size-1);
-  grid-template-columns: repeat(10, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(5vw, 100px));
   list-style-type: none;
   padding-inline-start: 0;
 
   & > li {
     padding-inline-start: 0;
+
+    & img {
+      object-fit: contain;
+    }
   }
 }
 
 .subject {
   display: grid;
   gap: var(--size-2);
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: repeat(auto-fit, 40vw);
 
   & svg {
     inline-size: var(--size-fluid-10);
@@ -78,15 +96,5 @@ ul.thumbnails {
 
   & dl {
     gap: var(--size-1);
-  }
-}
-
-@media (max-width: 480px) {
-  .subject {
-    grid-template-columns: 1fr;
-  }
-
-  ul.thumbnails {
-    grid-template-columns: repeat(5, 1fr);
   }
 }
