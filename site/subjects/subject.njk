@@ -9,7 +9,7 @@ permalink: "/groups/{{ subject.group.name }}/subjects/{{ subject.zooniverse_id}}
 <div class="subject">
   <div>
     {% SVGSubject subject=subject %}
-      {% for mark in results.reduced %}
+      {% for mark in result.reduced %}
         {% SVGMark mark=mark %}
       {% endfor %}
     {% endSVGSubject %}
