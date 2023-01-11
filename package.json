@@ -12,7 +12,7 @@
   "author": "Zooniverse",
   "license": "Apache-2.0",
   "dependencies": {
-    "@11ty/eleventy": "^2.0.0-canary.27",
+    "@11ty/eleventy": "^2.0.0-canary.29",
     "@11ty/eleventy-upgrade-help": "^1.0.1"
   },
   "devDependencies": {
