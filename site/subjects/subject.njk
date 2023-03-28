@@ -24,7 +24,7 @@ permalink: "/groups/{{ subject.group.name }}/subjects/{{ subject.zooniverse_id}}
     <dl>
     {% for key, value in subject.metadata %}
       <dt>{{ key }}</dt>
-      <dd>{{ value }}</dd>
+      <dd>{{ value | dump }}</dd>
     {% endfor %}
     </dl>
   </div>
