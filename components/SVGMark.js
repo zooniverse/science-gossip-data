@@ -1,5 +1,5 @@
 const colours = {
-  drawing: 'darkorange',
+  drawing: 'indigo',
   map: 'blue',
   chart: 'red',
   table: 'lightseagreen',
@@ -26,6 +26,7 @@ module.exports = function SVGMark({ mark }) {
   return `
     <rect
       stroke=${colour}
+      stroke-dasharray='2 4'
       fill="transparent"
       x=${x}
       y=${y}
