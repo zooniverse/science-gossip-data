@@ -1,4 +1,7 @@
 module.exports = function SubjectImg({ className, size = 'standard', subject }) {
+  if (!subject) {
+    return ''
+  }
   const staticRoot = 'static.zooniverse.org';
   let src = subject.location[size];
   src = src.replace('zooniverse-static.s3.amazonaws.com', staticRoot);
@@ -13,7 +16,7 @@ module.exports = function SubjectImg({ className, size = 'standard', subject }) 
       loading=lazy
       ${classAttr}
       alt="Subject ${subject.zooniverse_id}"
-      src=${src}
+      src="${src}"
     />
   `
 }

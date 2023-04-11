@@ -20,12 +20,13 @@ function pageSubjects(groupSubjects) {
   return subjectPages
 }
 
-module.exports = function paginatedSubjects() {
+function paginatedSubjects() {
   let groupedSubjects = [];
   fs.readdirSync('./site/_data/subjects').forEach(file => {
-    const groupID = file.split('.')[0];
     const groupSubjects = require(`./subjects/${file}`);
     groupedSubjects = groupedSubjects.concat(pageSubjects(groupSubjects));
   });
   return groupedSubjects;
 }
+
+module.exports = paginatedSubjects()
