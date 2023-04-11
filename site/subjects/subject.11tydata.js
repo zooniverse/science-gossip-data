@@ -1,6 +1,8 @@
+const slugify = require('slugify');
+
 function parseSubjectResults({ subject, results }) {
   const groupID = subject.group.zooniverse_id;
-  const [result] = results[groupID].filter(result => result.subject_id === subject.zooniverse_id);
+  const result = results[groupID].find(result => result.subject_id === subject.zooniverse_id);
   return result;
 }
 
@@ -19,11 +21,30 @@ function subjectImage({ subject }) {
   return href;
 }
 
+function linkedKeywords({ allTags, subject, results }) {
+  const keywords = [];
+  const result = parseSubjectResults({ subject, results });
+  result.keywords
+  .map(key => key.trim())
+  .filter(Boolean)
+  .forEach(key => {
+    const slug = slugify(key).toLowerCase()
+    if (slug && allTags[slug]) {
+      const href = `../../../../tags/${slug}/page/0/`
+      keywords.push({ href, key });
+    } else {
+      keywords.push({ key });
+    }
+  })
+  return keywords;
+}
+
 module.exports = {
   eleventyComputed: {
     result: parseSubjectResults,
     title: subjectTitle,
     description: subjectDescription,
-    ogImage: subjectImage
+    ogImage: subjectImage,
+    linkedKeywords
   }
 }

@@ -17,7 +17,13 @@ permalink: "/groups/{{ subject.group.name }}/subjects/{{ subject.zooniverse_id}}
   <div>
     <h2>Keywords</h2>
     <p>
-      {{ result.keywords | join(', ') }}
+    {% for keyword in linkedKeywords %}
+      {% if keyword.href %}
+        <a href="{{ keyword.href }}">{{ keyword.key }}</a> 
+      {% else %}
+        {{ keyword.key }} 
+      {% endif %}
+    {% endfor %}
     </p>
 
     <h2>Metadata</h2>
