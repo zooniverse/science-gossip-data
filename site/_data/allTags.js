@@ -11,7 +11,7 @@ function allTags() {
     console.log(file, groupResults.length)
     for (let i = groupResults.length - 1; i > -1; i--) {
       const result = groupResults[i]
-      const subject = groupSubjects[i]
+      const subject = groupSubjects.find(subject => subject.zooniverse_id === result.subject_id)
       result.keywords
       .map(key => key.trim())
       .filter(Boolean)
