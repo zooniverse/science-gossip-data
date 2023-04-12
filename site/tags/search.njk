@@ -27,7 +27,7 @@ function doSearch() {
   const tagLinks = allTags
     .filter(tag => tag.slug.startsWith(searchText || ' '))
     .map(tag => `<a href='../${tag.slug}/page/0/'>${tag.tagName}</a>`);
-    results.innerHTML = tagLinks.join(', ');
+  results.innerHTML = tagLinks.join(', ');
 }
 form.addEventListener('submit', doSearch);
 form.addEventListener('input', doSearch);
