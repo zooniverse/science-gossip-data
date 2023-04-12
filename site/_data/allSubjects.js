@@ -1,6 +1,6 @@
 const fs = require('fs');
 
-module.exports = function allSubjects() {
+function allSubjects() {
   let subjects = [];
   fs.readdirSync('./site/_data/subjects').forEach(file => {
     const groupSubjects = require(`./subjects/${file}`)
@@ -10,3 +10,5 @@ module.exports = function allSubjects() {
   console.log('Total number of subjects:', subjects.length)
   return subjects
 }
+
+module.exports = allSubjects()
