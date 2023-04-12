@@ -43,10 +43,13 @@ const results = document.getElementById('results');
 function doSearch() {
   const formData = new FormData(form);
   const searchText = formData.get('tagName');
+  const url = new URL(location);
+  url.searchParams.set('tagName', searchText);
+  history.replaceState({ searchText }, '', `${url.pathname}${url.search}`);
   const tagLinks = allTags
-    .filter(tag => tag.slug.startsWith(searchText))
+    .filter(tag => tag.slug.startsWith(searchText || ' '))
     .map(tag => `<a href='../${tag.slug}/page/0/'>${tag.tagName}</a>`);
-    results.innerHTML = tagLinks.join(' ');
+    results.innerHTML = tagLinks.join(', ');
 }
 form.addEventListener('submit', doSearch);
 form.addEventListener('input', doSearch);
@@ -57,5 +60,6 @@ if (tagName) {
   doSearch();
 }
 </script>
+
   </body>
 </html>
