@@ -1,0 +1,40 @@
+---
+layout: default
+permalink: '/contributors/search/'
+---
+<search>
+  <h1>Contributor search</h1>
+  <form id="searchForm">
+    <label for="contributor">Search contributors</label>
+    <input id="contributor" type="text" name="contributor" /> <button type="submit">Go</button>
+  </form>
+</search>
+
+<p id="results">
+</p>
+
+<script>
+const allTags = {{ searchIndex | dump | safe }};
+const form = document.getElementById('searchForm');
+const textInput = document.getElementById('contributor');
+const results = document.getElementById('results');
+function doSearch() {
+  const formData = new FormData(form);
+  const searchText = formData.get('contributor').toLowerCase();
+  const url = new URL(location);
+  url.searchParams.set('contributor', searchText);
+  history.replaceState({ searchText }, '', `${url.pathname}${url.search}`);
+  const tagLinks = allTags
+    .filter(tag => tag.slug.includes(searchText))
+    .map(tag => `<a href='../${tag.slug}/page/0/'>${tag.name}</a>`);
+  results.innerHTML = tagLinks.join(', ');
+}
+form.addEventListener('submit', doSearch);
+form.addEventListener('input', doSearch);
+const urlSearchParams = new URLSearchParams(location.search);
+const contributor = urlSearchParams.get('contributor');
+textInput.value = contributor || '';
+if (contributor) {
+  doSearch();
+}
+</script>
