@@ -39,12 +39,19 @@ function linkedKeywords({ allTags, subject, results }) {
   return keywords;
 }
 
+function contributors({ allContributors, subject }) {
+  return Object.entries(allContributors)
+  .filter(([slug, { subjects }]) => subjects.includes(subject))
+  .map(([slug, { name }]) => ({ href: `../../../../contributors/${slug}/page/0/`, name }))
+}
+
 module.exports = {
   eleventyComputed: {
     result: parseSubjectResults,
     title: subjectTitle,
     description: subjectDescription,
     ogImage: subjectImage,
-    linkedKeywords
+    linkedKeywords,
+    contributors
   }
 }
