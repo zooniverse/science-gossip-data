@@ -1,5 +1,5 @@
 function searchIndex({ allSpecies }) {
-  return Object.entries(allSpecies).map(([key, value]) => ({ name: value.name, slug: key }));
+  return allSpecies.map(([key, value]) => ({ name: value.name, slug: key }));
 }
 
 module.exports = {

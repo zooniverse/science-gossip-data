@@ -44,4 +44,4 @@ function allContributors() {
   return contributorIndex
 }
 
-module.exports = allContributors()
+module.exports = Object.entries(allContributors())

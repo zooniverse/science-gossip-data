@@ -40,4 +40,4 @@ function allTags() {
   return tagIndex
 }
 
-module.exports = allTags()
+module.exports = Object.entries(allTags())

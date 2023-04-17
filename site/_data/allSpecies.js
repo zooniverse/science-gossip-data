@@ -55,4 +55,4 @@ function allSpecies() {
   return speciesIndex
 }
 
-module.exports = allSpecies()
+module.exports = Object.entries(allSpecies())

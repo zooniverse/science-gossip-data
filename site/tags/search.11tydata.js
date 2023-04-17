@@ -1,5 +1,5 @@
 function searchIndex({ allTags }) {
-  return Object.entries(allTags).map(([key, value]) => ({ tagName: value.tagName, slug: key }));
+  return allTags.map(([key, value]) => ({ tagName: value.tagName, slug: key }));
 }
 
 module.exports = {

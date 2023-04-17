@@ -21,7 +21,7 @@ function pageSubjects(key, tag) {
 
 function paginatedContributors() {
   let taggedSubjects = [];
-  for (const [key, value] of Object.entries(allContributors)) {
+  for (const [key, value] of allContributors) {
     taggedSubjects = taggedSubjects.concat(pageSubjects(key, value))
   }
   return taggedSubjects;

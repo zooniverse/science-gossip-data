@@ -29,7 +29,7 @@ function linkedKeywords({ allTags, subject, results }) {
   .filter(Boolean)
   .forEach(key => {
     const slug = slugify(key).toLowerCase()
-    if (slug && allTags[slug]) {
+    if (slug && allTags.find(([key, value]) => key === slug)) {
       const href = `../../../../tags/${slug}/page/0/`
       keywords.push({ href, key });
     } else {
@@ -40,13 +40,13 @@ function linkedKeywords({ allTags, subject, results }) {
 }
 
 function contributors({ allContributors, subject }) {
-  return Object.entries(allContributors)
+  return allContributors
   .filter(([slug, { subjects }]) => subjects.includes(subject))
   .map(([slug, { name }]) => ({ href: `../../../../contributors/${slug}/page/0/`, name }))
 }
 
 function species({ allSpecies, subject }) {
-  return Object.entries(allSpecies)
+  return allSpecies
   .filter(([slug, { subjects }]) => subjects.includes(subject))
   .map(([slug, { name }]) => ({ href: `../../../../species/${slug}/page/0/`, name }))
 }

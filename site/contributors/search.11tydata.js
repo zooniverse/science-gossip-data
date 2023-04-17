@@ -1,5 +1,5 @@
 function searchIndex({ allContributors }) {
-  return Object.entries(allContributors).map(([key, value]) => ({ name: value.name, slug: key }));
+  return allContributors.map(([key, value]) => ({ name: value.name, slug: key }));
 }
 
 module.exports = {
