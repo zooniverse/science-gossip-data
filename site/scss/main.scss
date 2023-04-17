@@ -88,7 +88,7 @@ ul.thumbnails {
 .subject {
   display: grid;
   gap: var(--size-2);
-  grid-template-columns: repeat(auto-fit, 40vw);
+  grid-template-columns: repeat(auto-fit, 31rem);
 
   & svg {
     inline-size: var(--size-fluid-10);
