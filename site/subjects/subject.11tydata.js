@@ -24,19 +24,27 @@ function subjectImage({ subject }) {
 function linkedKeywords({ allTags, subject, results }) {
   const keywords = [];
   const result = parseSubjectResults({ subject, results });
+  const linkedTags = tags({ allTags, subject });
   result.keywords
   .map(key => key.trim())
   .filter(Boolean)
   .forEach(key => {
     const slug = slugify(key).toLowerCase()
-    if (slug && allTags.find(([key, value]) => key === slug)) {
-      const href = `../../../../tags/${slug}/page/0/`
+    const href = `../../../../tags/${slug}/page/0/`
+    const isLink = slug && linkedTags.find(tag => tag.href === href)
+    if (isLink) {
       keywords.push({ href, key });
     } else {
       keywords.push({ key });
     }
   })
   return keywords;
+}
+
+function tags({ allTags, subject }) {
+  return allTags
+  .filter(([slug, { subjects }]) => subjects.includes(subject))
+  .map(([slug, { name }]) => ({ href: `../../../../tags/${slug}/page/0/`, name }))
 }
 
 function contributors({ allContributors, subject }) {
