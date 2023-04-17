@@ -1,0 +1,40 @@
+---
+layout: default
+permalink: '/species/search/'
+---
+<search>
+  <h1>Species search</h1>
+  <form id="searchForm">
+    <label for="species">Search species</label>
+    <input id="species" type="text" name="species" /> <button type="submit">Go</button>
+  </form>
+</search>
+
+<p id="results">
+</p>
+
+<script>
+const allTags = {{ searchIndex | dump | safe }};
+const form = document.getElementById('searchForm');
+const textInput = document.getElementById('species');
+const results = document.getElementById('results');
+function doSearch() {
+  const formData = new FormData(form);
+  const searchText = formData.get('species').toLowerCase();
+  const url = new URL(location);
+  url.searchParams.set('species', searchText);
+  history.replaceState({ searchText }, '', `${url.pathname}${url.search}`);
+  const tagLinks = allTags
+    .filter(tag => tag.slug.includes(searchText))
+    .map(tag => `<a href='../${tag.slug}/page/0/'>${tag.name}</a>`);
+  results.innerHTML = tagLinks.join(', ');
+}
+form.addEventListener('submit', doSearch);
+form.addEventListener('input', doSearch);
+const urlSearchParams = new URLSearchParams(location.search);
+const species = urlSearchParams.get('species');
+textInput.value = species || '';
+if (species) {
+  doSearch();
+}
+</script>

@@ -45,6 +45,12 @@ function contributors({ allContributors, subject }) {
   .map(([slug, { name }]) => ({ href: `../../../../contributors/${slug}/page/0/`, name }))
 }
 
+function species({ allSpecies, subject }) {
+  return Object.entries(allSpecies)
+  .filter(([slug, { subjects }]) => subjects.includes(subject))
+  .map(([slug, { name }]) => ({ href: `../../../../species/${slug}/page/0/`, name }))
+}
+
 function group({ groups, subject }) {
   return groups[subject.group.zooniverse_id]
 }
@@ -52,6 +58,7 @@ function group({ groups, subject }) {
 module.exports = {
   eleventyComputed: {
     group,
+    species,
     result: parseSubjectResults,
     title: subjectTitle,
     description: subjectDescription,

@@ -41,6 +41,13 @@ permalink: "/groups/{{ subject.group.name }}/subjects/{{ subject.zooniverse_id}}
       <li><a href="{{ contributor.href }}">{{ contributor.name }}</a></li>
     {% endfor %}
     </ul>
+
+    <h2>Species</h2>
+    <ul>
+    {% for s in species %}
+      <li><a href="{{ s.href }}">{{ s.name }}</a></li>
+    {% endfor %}
+    </ul>
   </div>
 </main>
 
