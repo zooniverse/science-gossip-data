@@ -6,7 +6,7 @@ pagination:
   alias: subject
 permalink: "/groups/{{ subject.group.name }}/subjects/{{ subject.zooniverse_id}}/"
 ---
-<div class="subject">
+<main class="subject">
   <div>
     {% SVGSubject subject=subject %}
       {% for mark in result.reduced %}
@@ -15,6 +15,15 @@ permalink: "/groups/{{ subject.group.name }}/subjects/{{ subject.zooniverse_id}}
     {% endSVGSubject %}
   </div>
   <div>
+    <h1>Subject {{ subject.zooniverse_id }}</h1>
+    <p>
+    <a href="../../../../groups/{{ group.name }}/page/0/">{{ group.metadata.title }}</a><br>
+    {{ subject.metadata.volume }}, {{ subject.metadata.page_no }} ({{ subject.metadata.year }})<br>
+    {{ subject.metadata.contributor }}<br>
+    <a href="https://www.biodiversitylibrary.org/page/{{ subject.metadata.page_id }}">
+      BHL Page {{ subject.metadata.page_id }}
+    </a>
+    </p>
     <h2>Keywords</h2>
     <p>
     {% for keyword in linkedKeywords %}
@@ -32,29 +41,31 @@ permalink: "/groups/{{ subject.group.name }}/subjects/{{ subject.zooniverse_id}}
       <li><a href="{{ contributor.href }}">{{ contributor.name }}</a></li>
     {% endfor %}
     </ul>
-
-    <h2>Metadata</h2>
-    <dl>
-    {% for key, value in subject.metadata %}
-      <dt>{{ key }}</dt>
-      <dd>{{ value | dump }}</dd>
-    {% endfor %}
-    </dl>
   </div>
-</div>
+</main>
 
-<h2>Drawn marks</h2>
-<dl>
-{% for reduction in result.reduced %}
-  <dt>{{ reduction.type }}</dt>
-  <dd>{{ reduction.value | dump }}</dd>
-{% endfor %}
-</dl>
+<aside class="secondary">
+  <h2>Metadata</h2>
+  <dl>
+  {% for key, value in subject.metadata %}
+    <dt>{{ key }}</dt>
+    <dd>{{ value | dump }}</dd>
+  {% endfor %}
+  </dl>
 
-<h2>Raw result</h2>
-<dl>
-{% for key, value in result %}
-  <dt>{{ key }}</dt>
-  <dd>{{ value | dump }}</dd>
-{% endfor %}
-</dl>
+  <h2>Drawn marks</h2>
+  <dl>
+  {% for reduction in result.reduced %}
+    <dt>{{ reduction.type }}</dt>
+    <dd>{{ reduction.value | dump }}</dd>
+  {% endfor %}
+  </dl>
+
+  <h2>Raw result</h2>
+  <dl>
+  {% for key, value in result %}
+    <dt>{{ key }}</dt>
+    <dd>{{ value | dump }}</dd>
+  {% endfor %}
+  </dl>
+</aside>

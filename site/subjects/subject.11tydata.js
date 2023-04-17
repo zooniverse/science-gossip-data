@@ -45,8 +45,13 @@ function contributors({ allContributors, subject }) {
   .map(([slug, { name }]) => ({ href: `../../../../contributors/${slug}/page/0/`, name }))
 }
 
+function group({ groups, subject }) {
+  return groups[subject.group.zooniverse_id]
+}
+
 module.exports = {
   eleventyComputed: {
+    group,
     result: parseSubjectResults,
     title: subjectTitle,
     description: subjectDescription,
