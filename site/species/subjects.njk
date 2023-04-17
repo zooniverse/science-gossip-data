@@ -1,0 +1,46 @@
+---
+layout: default
+pagination:
+  data: paginatedSpecies
+  size: 1
+  alias: tagPage
+permalink: "/species/{{ tagPage.slug }}/page/{{ tagPage.page }}/"
+---
+<h1>{{ tagPage.tagName }}</h1>
+<nav aria-label="Page">
+  <ul>
+  {% for page in range(0, tagPage.pageCount) -%}
+    <li>
+      <a
+      {% if page === tagPage.page %}class="current"{% endif %}
+        href="../{{ page }}/"
+      >
+        {{ page }}
+      </a>
+    </li>
+  {%- endfor %}
+  </ul>
+</nav>
+<ul class="thumbnails">
+{% for subject in  tagPage.subjects%}
+  <li>
+    <a href="../../../../groups/{{ subject.group.name }}/subjects/{{ subject.zooniverse_id }}">
+      {% SubjectImg subject=subject, size="thumb" %}
+    </a>
+  </li>
+{% endfor %}
+</ul>
+<nav aria-label="Page">
+  <ul>
+  {% for page in range(0, tagPage.pageCount) -%}
+    <li>
+      <a
+      {% if page === tagPage.page %}class="current"{% endif %}
+        href="../{{ page }}/"
+      >
+        {{ page }}
+      </a>
+    </li>
+  {%- endfor %}
+  </ul>
+</nav>
