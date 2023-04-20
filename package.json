@@ -16,7 +16,7 @@
   },
   "devDependencies": {
     "cssnano": "^6.0.0",
-    "postcss": "^8.4.22",
+    "postcss": "^8.4.23",
     "postcss-advanced-variables": "^3.0.1",
     "postcss-nested": "^6.0.1",
     "postcss-scss": "^4.0.6"
