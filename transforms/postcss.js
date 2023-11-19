@@ -1,7 +1,7 @@
 const
   postcss = require('postcss'),
   postcssPlugins = [
-    require('postcss-advanced-variables'),
+    require('@knagis/postcss-advanced-variables'),
     require('postcss-nested'),
     require('cssnano')
   ],
