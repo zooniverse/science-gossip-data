@@ -17,6 +17,7 @@ module.exports = function({ page, title = 'Science Gossip Data', description, og
   return `
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="view-transition" content="same-origin" />
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="Science Gossip Data" />
     <meta property='og:url' content="https://zooniverse.github.io/science-gossip-data${ page.url }" />
